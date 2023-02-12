@@ -26,6 +26,7 @@ const parse = stdout =>
         channel,
         frequency,
         quality,
+        bars,
         security,
         security_flags_wpa,
         security_flags_rsn
@@ -40,6 +41,7 @@ const parse = stdout =>
         frequency: parseInt(frequency),
         signal_level: dBFromPercentage(quality),
         quality: parseInt(quality),
+        bars,
         security: security !== '(none)' ? security : 'none',
         security_flags: {
           wpa: security_flags_wpa,
