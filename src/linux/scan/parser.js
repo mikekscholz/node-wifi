@@ -26,13 +26,14 @@ const parse = stdout =>
         channel,
         frequency,
         quality,
-        bars,
         security,
         security_flags_wpa,
-        security_flags_rsn
+        security_flags_rsn,
+        bars
       ] = fields;
 
       return {
+      	active,
         ssid,
         bssid,
         mac: bssid, // for retrocompatibility with version 1.x
@@ -41,12 +42,12 @@ const parse = stdout =>
         frequency: parseInt(frequency),
         signal_level: dBFromPercentage(quality),
         quality: parseInt(quality),
-        bars,
         security: security !== '(none)' ? security : 'none',
         security_flags: {
           wpa: security_flags_wpa,
           rsn: security_flags_rsn
-        }
+        },
+        bars
       };
     });
 
