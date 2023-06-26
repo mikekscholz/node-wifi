@@ -54,7 +54,7 @@ wifi.init({
 });
 
 // Scan networks
-wifi.scan((error, networks) => {
+wifi.scan({ rescan: false }, (error, networks) => { // set rescan to true to force list update
   if (error) {
     console.log(error);
   } else {
